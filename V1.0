@@ -1,0 +1,87 @@
+//Générateur de phrases
+//©2022 David Sauvé
+int y = 70;
+int x = 50;
+int q = 200;
+float r = random(0,255);
+float g = random(0,255);
+float b = random(0,255);
+
+//DÉTERMINANTS
+String[] art = {
+  "Des", "un(e)","Du(de la)","un(e)"
+};
+//ADJECTIFS
+String[] adj = {
+  "jeune(s)","imbécile(s)", "piètre","vieux(eille)", "gonflé(e)s", "malade mental","épuisé(e)(s)","mélodrame(s)","étiré(e)(s)","petit(e)(s)", "grand(e)(s)", "malin(e)(s)", "souriant(e)(s)", "brave(s)", "géant(e)(s)", "surprenant(e)(s)", "mysterieux(ses)", "briant(e)(s)", "vert(e)(s)", "bleu(e)(s)","rouge(s)", " jaune(s)", "orange(s)", "épuisé(e)(s)", "dur(e)(s)", "tendre(s)", "transparent(e)(s)", "long(ue)(s)", "court(e)(s)", 
+  "excellent(e)(s)", "assourdissant(e)(s)", "silencieux(se)(s)", "rare(s)", "normal(e)(aux)", "mort(e)(s)", "vivant(e)(s)", "propre(s)", "glamour(s)", "rafiné(e)(s)", "charmant(e)(s)", "paresseux(se)", "épeurant(e)(s)", "imbécile(s)", "mince(s)", "mélodieux(se(s))", "fou(olle)(s)", 
+  "gentil(le)(s)", "brave(s)", "nice(s)", "ancien(nne)(s)", "moderne(s)", "petit(e)(s)", "sucré(e)(s)", "mouillé(e)(s)", "froid(e)(s)","chaud(e)(s)", "secs(sèche(nt))", "lourd(e)(s)", "industriel(le)(s)", "complexe(s)", "précis(e)(s)", "épatant(e)(s)", "ensoleillé(e)(s)", "cool(s)", "scintillant(e)(s)", 
+  "faux(fausse(s))", "irréel(le)(s)","incongru(e)(s)","mélodieu(se(s))", "incroyable(s)", "éminent(e(s))","étourdi(e(s))","allongé(e(s))","brisé(e(s))","fortifié(e(s))","claustrophobe","homophope", "hétérophobe","nu(e)(s)", "intelligent(e)(s)", "sur le party", "curieux(se)(s)", "étrange(s)", "unique(s)", "vide(s)", "gris(e)(s)","furieux(se)", "saturé(e)(s)", "flou(e)(nt)(s)","dense(nt)(s)"
+};
+//NOMS
+String[] nou = {
+  "forêt(s)", "arbre(s)","fin(s) connaisseur(s)","pluie", "montage vidéo","palindrôme(s)", "cheval(aux)","romain(s)","Jésus","yable(s)","bouse(s) de vache(s)","casino","prise de pêche","électricité flottante(s)","histoire(s)","navette(s)","esprit(s)", "citoyen(ne)(s)","emploi(s)","amour(s)","plante(s)","fleur(s)", "ciel(eux)", "gazon(s)", "montagne(s)", "auto(s)", "ordinateur(s)", "homme(s)", "femme(s)", "chien(s)", "éléphant(s)", "fourmis", "rue(s)","route(s)","papillon(s)", "téléphone(s)", "programme(s) d'ordinateur(s)", "grand-maman(s)", "école(s)", "lit(s)", 
+  "souris", "clavier(s)", "vélo(s)", "spaghetti(s)", "drink(s)", "chat(s)", "t-shirt(s)", "tapis", "mur(s)", "poster(s)", "aéroport(s)", "pont(s)", "route(s)", "rivière(s)", "plage(s)", "sculpture(s)", "piano(s)", "guitare(s)", "fruit(s)", 
+  "banane(s)", "pomme(s)", "anthropologue(s) fou(s)","enfant(s)","comportement(s)","fraterie(s)","communauté(s)","fraise(s)", "tige(s) de cahoutchouc(s)", "saxophone(s)","hélicoptère(s)","journaliste(s)","animal(aux)","tremplin(s)","gourde(s)","place(s)","écatombe(s)","soulier(s)","marcheur(s)","rêveur(s)","vitre(s)", "ordinateur mac(s)", "skate board(s)", "bout(s) de papier", "photographie(s)", "peinture(s)", "chapeau(x)", "espace(s)", "fourchette(s)", 
+  "mission(s)", "but(s)", "projet(s)", "taxe(s)", "nain(s)", "black(s)", "tête(s) à claque(s)","avenue(s)","applaudissement(s)","moulin(s) à vent", "ampoule(s)", "microphone(s)","micro(s)", "bonhomme(s)","avion(s)", "pile(s)", "lampe(s) de poche","animation(s)","mascarade(s)","soleil(s)", "perroquet(s)","lame(s)", "dude", "mec pas net","queue de cheval","rognon de boeuf","pile de merde","perte incommensurable", "prêtre démoniaque","fleur(s) carnivore(s)","boué(e)(s) de sauvetage","fin(s) de semaine"
+}; 
+//VERBES
+String[] ver = {
+
+  "étudie(nt)", "nage(nt)", "voyage(nt)","saute(nt)","travaille(nt)","prodigue(nt)","polis(ssent)","s'améliore(nt)","rend(ent) plus fort(s)","ôte(nt)", "voyage(nt)", "s'embrasse(nt)","plie(nt)","idéalise(nt)","brutalise","lance des rockettes","déambule(nt) follement","joue(nt)", "jouaie(nt)", "prend(nnent) plaisir à déguster", "établie(nt)", "illumine(nt)","fortifie(nt)", "réveille(nt)", "mange(nt)", "boi(vent)", "calcule(nt)", "embrasse(nt)", "disparaît(ssent)", "écoute(ent)", 
+  "navigue(nt)","sonne(nt)","bouille(nt)", "répond(ent)", "souri(ent)", "notifie(nt)","ment(ent)", "succéde(nt)", "se demande(nt)", "pense(nt)","suis(ent)", "est(sont)", "était(ent)", "sera(ont)", "peuve(nt) être", "n'a(ont) jamais", "se dresse contre les fous(lles)","s'étend(ent) à perte de vue","se déplace(nt) à reculon","établit une autorité","personifie une pensée idéologique"
+};
+
+String[] pre = {
+  "sous", "au devant (de)(des)(d')(du)", "au-dessus(de)(des)(d')", "derrière", "proche(nt) de(d')(du)", "à l'intérieur", "en-dehors de (du)(des)", "contrairement à(aux)", "comme", "sous", "contre", "dans", "au-delà", "sans", "avec", "envers"
+};
+//PONCTUATION
+String[] punc = {
+  "...", "?", "!", ".", ",", ";"
+};
+//CONJONCTIONS
+String[] con = {
+  "même si", "parce que", "et", "mais", "néanmoins", "alors", "conséquamment", "donc", "en dépit","en conséquence", "par ailleurs"
+};
+
+
+void write_word(String[] words) { 
+  if (x > 200) {
+    x = x - 160;
+  }
+  int a = int(random(words.length-5));
+  textSize(20);
+  fill(255);
+  text(words[a], x, y);
+  
+  y = y + 25;
+  x = x + 0;
+}
+
+void setup() {
+  size(600, 600);
+  background(r,g,b);
+  fill(b,r,g);
+  rect(width/2,height/2,100,20);
+   fill(b/r+b+r+g,r+b,g-r);
+  rect(width/2,height/2-20,100,20);
+     fill(b*r/g,r-b+g,g+r/b);
+  rect(width/2,height/2-40,100,20);
+  write_word(art);//1
+  write_word(nou);//2
+
+  write_word(ver);//4
+  write_word(pre);//5
+  write_word(art);//6
+  write_word(nou);//7
+  write_word(punc);//8
+  
+  
+  write_word(con);//9
+  write_word(art);//10
+  write_word(nou);//11
+  write_word(adj);//12
+  write_word(ver);//13
+   
+    write_word(punc);//16
+}
